@@ -20,7 +20,9 @@ export default {
   components: { Skill, Intro },
   data () {
     return {
-      fullPageOptions: {}
+      fullPageOptions: {
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
+      }
     }
   }
 }

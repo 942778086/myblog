@@ -1,5 +1,7 @@
 <template>
   <div class="frontPage" @click="toMainPage">
+    <video-part />
+    <div class="back"></div>
     <div class="left"></div>
     <div class="nameSpace">
       <div class="avaRoom"><img class="ava" src="../assets/ava.jpg"></div>
@@ -10,8 +12,10 @@
 </template>
 
 <script>
+import VideoPart from '../components/videoPart'
 export default {
   name: 'FrontPage',
+  components: { VideoPart },
   methods: {
     toMainPage () {
       this.$router.push({
@@ -27,11 +31,23 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #2c3e50, #42b983);
+  /*background: linear-gradient(to right, rgba(44, 62, 80, 0.2), rgba(66, 185, 131, 0.23));*/
   background-size: 800% 100%;
   animation: ease-in 5s infinite alternate backMove;
   display: table;
   cursor: default;
+  overflow: hidden;
+}
+.back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(44, 62, 80), rgb(66, 185, 131));
+  background-size: 800% 100%;
+  /*animation: ease-in 5s infinite alternate backMove;*/
+  display: table;
+  cursor: default;
+  z-index: -50;
 }
 @keyframes backMove {
   from {
@@ -49,6 +65,7 @@ export default {
     display: table-cell;
     vertical-align: middle;
     text-indent: 5px;
+    z-index: 30;
   }
   .ava{
     width: 100px;

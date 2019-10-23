@@ -13,8 +13,11 @@
       <div class="infoRoom">
         湖北大学
       </div>
-      <div class="infoRoom">
+      <div class="infoRoom lastInfo">
         1999-05-07
+      </div>
+      <div class="signRoom">
+        we live alone, we die alone, everything else is just an illusion
       </div>
     </div>
   </div>
@@ -57,6 +60,19 @@ export default {
     font-weight: bold;
     border-bottom: 1px solid white;
     color: white;
-    margin: 20px auto 0 auto;
+    margin: 15px auto 0 auto;
+    padding-bottom: 15px;
+  }
+  .lastInfo{
+    width: 100%;
+  }
+  .signRoom{
+    width: 100%;
+    height: 186px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+    color: white;
+    font-style: oblique;
   }
 </style>
