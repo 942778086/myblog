@@ -1,6 +1,6 @@
 <template>
-  <div class="videoRoom">
-    <video autoplay="autoplay" muted loop :width="width" :height="height">
+  <div class="video-room">
+    <video class="video" autoplay="autoplay" muted loop :height="height">
       <source src="../assets/video/1.mp4" />
     </video>
   </div>
@@ -23,10 +23,14 @@ export default {
 </script>
 
 <style scoped>
-.videoRoom{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+.video-room{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.video {
+    min-width: 100%;
 }
 </style>

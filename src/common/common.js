@@ -1,29 +1,127 @@
 /**
- * 文字跑马灯
- * html code:
- *<div class="box">
- *    <div class="content">
- *        <p class="text">文字如果超出了宽度自动向左滚动文字如果超出了宽度自动向左滚动。</p>
- *    </div>
- *</div>
- * @param boxDom {HTMLElement}
- * @param content {HTMLElement}
- * @param labelDom {HTMLElement}
+ * rem适配脚本
+ * 来源：https://github.com/amfe/lib-flexible
  */
-export const Marquee = (boxDom, content, labelDom) => {
-	let boxWidth = boxDom.offsetWidth;
-	let textWidth = labelDom.offsetWidth;
-	if(boxWidth > textWidth){ return false }
-	content.innerHTML += content.innerHTML;
-	labelDom.style.paddingLeft = "300px";
-	// 更新
-	textWidth = labelDom.offsetWidth;
-	const toScrollLeft = () => {
-		//  如果文字长度大于滚动条距离，则递归拖动
-		if (textWidth > boxDom.scrollLeft) {
-			boxDom.scrollLeft++;
-			setTimeout('toScrollLeft()', 18);
+(function flexible (window, document) {
+	let docEl = document.documentElement;
+	let dpr = window.devicePixelRatio || 1;
+
+	// adjust body font size
+	function setBodyFontSize () {
+		if (document.body) {
+			document.body.style.fontSize = (12 * dpr) + 'px'
+		}
+		else {
+			document.addEventListener('DOMContentLoaded', setBodyFontSize)
 		}
 	}
-	toScrollLeft();
+	setBodyFontSize();
+	// set 1rem = viewWidth / 10
+	function setRemUnit () {
+		let rem = docEl.clientWidth / 10;
+		docEl.style.fontSize = rem + 'px'
+	}
+	setRemUnit()
+	// reset rem unit on page resize
+	window.addEventListener('resize', setRemUnit)
+	window.addEventListener('pageshow', function (e) {
+		if (e.persisted) {
+			setRemUnit()
+		}
+	})
+	// detect 0.5px supports
+	if (dpr >= 2) {
+		let fakeBody = document.createElement('body');
+		let testElement = document.createElement('div');
+		testElement.style.border = '.5px solid transparent'
+		fakeBody.appendChild(testElement)
+		docEl.appendChild(fakeBody)
+		if (testElement.offsetHeight === 1) {
+			docEl.classList.add('hairlines')
+		}
+		docEl.removeChild(fakeBody)
+	}
+}(window, document))
+
+/**
+ * canvas小球
+ */
+class CanvasBall {
+
+	canvas; ctx; x; y; radius; speed; img; imgInitPromise; time;
+
+	constructor(canvas, ctx, x, y, radius, speed, img) {
+		this.time = 0;
+		this.canvas = canvas;
+		this.ctx = ctx;
+		this.radius = radius;
+		this.speed = speed;
+		this.img = new Image(radius, radius);
+		this.img.src = img;
+		this.imgInitPromise = new Promise(resolve => {
+			this.img.onload = () => {
+				resolve();
+			}
+		})
+		this.initBall();
+	}
+
+	initBall() {
+		this.drawCircleImg();
+		this.move();
+	}
+
+	/**
+	 * 绘制圆形图片
+	 */
+	drawCircleImg() {
+		let ctx = this.ctx;
+		let r = this.radius;
+		let x = this.x;
+		let y = this.y;
+		let img = this.img;
+		ctx.save();
+		let d =2 * r;
+		let cx = x + r;
+		let cy = y + r;
+		ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+		ctx.clip();
+		this.imgInitPromise.then(() => {
+			ctx.drawImage(img, x, y, d, d);
+			ctx.restore();
+		})
+	}
+
+	/**
+	 * 绘制移动
+	 */
+	move() {
+		let canvas = this.canvas;
+		this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+		this.calcHeight();
+		this.drawCircleImg();
+		setTimeout(() => {
+			if (this.y !== canvas.height) {
+				this.move();
+			}
+			this.time++;
+		}, 1);
+	}
+
+	/**
+	 * 计算高度
+	 */
+	calcHeight() {
+
+	}
+}
+
+/**
+ *
+ * @param arg
+ * @param {HTMLElement} arg.domParent
+ */
+export const buildCanvas = (arg) => {
+	let canvas = document.createElement("canvas");
+	new CanvasBall(canvas.getContext('2d'), 0, 0, 100, 0, "https://i.loli.net/2020/07/20/th5qlCvnkO2HspE.jpg")
 }

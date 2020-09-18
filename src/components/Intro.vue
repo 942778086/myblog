@@ -96,14 +96,15 @@ export default {
 				resource: ""
             }],
             words: [
-            	"只有你是青天一样可爱",
+                "只有你是青天一样可爱",
                 "无数渺小的思考，填满了人的一生",
                 "盈盈一水间，脉脉不得语。——《迢迢牵牛星》",
             	"人世皆攘攘，相对唯顷刻 ——土方岁三",
                 "“就是现在”——符华",
                 "神仙保佑",
                 "没有一个冬天不可逾越，没有一个春天不会来临。——南方周末",
-                "只有看尽人世繁华，并且有能力随意享受繁华的人，才有资格说淡泊名利之类的话"]
+                "只有看尽人世繁华，并且有能力随意享受繁华的人，才有资格说淡泊名利之类的话"
+            ]
         }
     },
     mounted() {
@@ -120,6 +121,7 @@ export default {
 	    setBackground(img) {
 	    	let map = this.backgroundMap;
 	    	let imgDom = map.get(img);
+	    	let backgroundDom = this.$refs.backgroundroom;
 	    	if (!map.get(img)) {
 			    let bgImg = new Image();
 			    bgImg.src = img;
@@ -127,12 +129,12 @@ export default {
 			    bgImg.style.height = "100%";
 			    bgImg.onload = () => {
 			    	map.set(img, bgImg);
-				    this.$refs.backgroundroom.innerHTML = "";
-				    this.$refs.backgroundroom.appendChild(bgImg);
+				    backgroundDom.innerHTML = "";
+				    backgroundDom.appendChild(bgImg);
 			    }
             } else {
-			    this.$refs.backgroundroom.innerHTML = "";
-	    		this.$refs.backgroundroom.appendChild(imgDom)
+			    backgroundDom.innerHTML = "";
+			    backgroundDom.appendChild(imgDom)
             }
         },
 	    setBackgroundMusic(resource) {},
@@ -154,30 +156,31 @@ export default {
 
 .intro-setting {
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: 0.1rem;
+    top: 0.1rem;
 }
 
 .setting-list {
     position: absolute;
-    left: 10px;
-    top: 30px;
+    left: 0.1rem;
+    top: 0.3rem;
     color: white;
     text-align: left;
-    padding: 10px;
+    padding: 0.1rem;
     background-color: #89aeff38;
-    border-radius: 10px;
+    border-radius: 0.1rem;
 }
 
 .setting-item {
-    margin: 10px 0 10px 0;
+    margin: 0.1rem 0 0.1rem 0;
     cursor: pointer;
+    font-size: 0.12rem;
 }
 
 .card{
     display: inline-block;
-    width: 300px;
-    height: 600px;
+    width: 2rem;
+    height: 4rem;
     border: 2px solid #41b883;
     transition: all 1s;
 }
@@ -187,42 +190,42 @@ export default {
     position: absolute;
     top: 0;
     left: 0;right: 0;
-    width: 300px;
-    height: 600px;
+    width: 2rem;
+    height: 4rem;
     overflow: hidden;
     z-index: -1;
 }
 .ava{
-    width: 130px;
-    height: 130px;
+    width: 0.85rem;
+    height: 0.85rem;
     border-radius: 50%;
     border: 1px solid white;
-    animation: ease-in 1s avaShow;
 }
 
 .avaRoom{
-    margin-top: 50px;
+    margin-top: 0.5rem;
     border-bottom: 1px solid white;
 }
 .infoRoom{
     width: 50%;
     text-align: center;
-    font-size: 18px;
     font-weight: bold;
     border-bottom: 1px solid white;
     color: white;
-    margin: 15px auto 0 auto;
-    padding-bottom: 15px;
+    font-size: 0.12rem;
+    margin: 0.15rem auto 0 auto;
+    padding-bottom: 0.15rem;
   }
 .lastInfo{
     width: 100%;
+    font-size: 0.12rem;
 }
 .signRoom{
     width: 100%;
-    height: 186px;
+    height: 0.7rem;
     display: table-cell;
     vertical-align: middle;
-    font-size: 16px;
+    font-size: 0.12rem;
     color: white;
     font-style: oblique;
 }
@@ -234,11 +237,6 @@ export default {
     width: 40%;
     overflow-x: auto;
     overflow-y: hidden;
-}
-.nodelabelroom {
-    line-height: 186px;
-    width: 30%;
-    display: block;
 }
 
 .right-top-bg {
@@ -258,30 +256,9 @@ export default {
     opacity: 0
 }
 
-.customscroll::-webkit-scrollbar {
-    width: 12px;
-    background-color: #eee;
-}
-
-.customscroll::-webkit-scrollbar-track {
-    background-color: #eee;
-}
-
-.customscroll::-webkit-scrollbar-thumb {
-    background: #3DB6A4;
-}
-
-.customscroll::-webkit-scrollbar-button:start {
-    background-size: 12px 12px;
-}
-
-.customscroll::-webkit-scrollbar-button:end {
-    background-size: 12px 12px;
-}
-
 .commontitle {
     color: white;
-    font-size: 20px;
+    font-size: 0.2rem;
     text-align: center;
     padding: 5%;
     border: 1px solid white;
@@ -289,9 +266,9 @@ export default {
 }
 
 .star {
-    width: 130px;
-    height: 150px;
-    margin: 25px;
+    width: 0.85rem;
+    height: 1rem;
+    margin: 0.22rem;
     -webkit-transform: rotate(60deg);
     overflow: hidden;
     display: inline-block;
@@ -319,7 +296,8 @@ export default {
 
 .intro-label {
     position: absolute;
-    bottom: 50px;
+    bottom: 0.3rem;
+    font-size: 0.12rem;
     width: 100%;
     color: white;
     text-align: center;
@@ -327,6 +305,7 @@ export default {
 }
 .intro-nexttext {
     color: white;
+    font-size: 0.12rem;
     text-decoration: underline white;
     cursor: pointer;
 }

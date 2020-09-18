@@ -18,6 +18,7 @@
 import Intro from '../components/Intro'
 import Skill from '../components/Skill'
 import SchoolLife from '../components/SchoolLife'
+import 'fullpage.js/vendors/easings'
 
 export default {
   name: 'Main',
@@ -25,7 +26,13 @@ export default {
   data () {
     return {
       fullPageOptions: {
-        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE'
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+        afterLoad: this.afterLoad,
+        scrollOverflow: false,
+        scrollBar: true,
+        menu: '#menu',
+        easing: 'easeInOutQuint',
+        scrollingSpeed: 800
       }
     }
   }
