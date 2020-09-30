@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import VideoPart from '../components/VideoPart'
+import VideoPart from './VideoPart'
 export default {
   name: 'FrontPage',
   components: { VideoPart },
@@ -35,7 +35,6 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*background: linear-gradient(to right, rgba(44, 62, 80, 0.2), rgba(66, 185, 131, 0.23));*/
   background-size: 800% 100%;
   display: table;
   cursor: default;
@@ -47,7 +46,6 @@ export default {
   height: 100%;
   background: linear-gradient(to right, rgb(44, 62, 80), rgb(66, 185, 131));
   background-size: 800% 100%;
-  /*animation: ease-in 5s infinite alternate backMove;*/
   display: table;
   cursor: default;
   z-index: -50;

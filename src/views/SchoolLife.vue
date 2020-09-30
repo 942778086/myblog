@@ -42,7 +42,7 @@
             <div class="in-school-skill skill-icon-room">
                 <img src="../assets/skill/H5.png" @click="setTopic('Html')" />
                 <img src="../assets/skill/css3-original.png" @click="setTopic('CSS')" />
-                <img src="../assets/skill/vue (2).png" @click="setTopic('Vue')" />
+                <img src="../assets/skill/vue.png" @click="setTopic('Vue')" />
                 <img src="../assets/skill/小程序.png" @click="setTopic('小程序')" />
                 <img src="../assets/skill/fe-electron.png" @click="setTopic('electron')" />
                 <img src="../assets/skill/java.png" @click="setTopic('Java')" />
@@ -59,7 +59,7 @@
                 <img src="../assets/skill/spring.png" @click="setTopic('Spring')" />
             </div>
             <div class="in-gy-skill skill-icon-room">
-                <img src="../assets/skill/vue (2).png" @click="setTopic('Vue')"/>
+                <img src="../assets/skill/vue.png" @click="setTopic('Vue')"/>
                 <img src="../assets/skill/小程序.png" @click="setTopic('小程序')"/>
                 <img src="../assets/skill/Gitlab.png" @click="setTopic('Git')"/>
             </div>

@@ -13,6 +13,7 @@
   color: #2c3e50;
   margin: 0;
   padding: 0;
+  font-size: 0.1rem;
 }
 *::-webkit-scrollbar {
     width: 12px;

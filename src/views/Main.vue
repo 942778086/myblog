@@ -8,21 +8,21 @@
         <SchoolLife />
       </div>
       <div class="section">
-        <Skill />
+        <Designer />
       </div>
     </full-page>
   </div>
 </template>
 
 <script>
-import Intro from '../components/Intro'
-import Skill from '../components/Skill'
-import SchoolLife from '../components/SchoolLife'
+import Intro from './Intro'
+import Designer from './Designer/Index'
+import SchoolLife from './SchoolLife'
 import 'fullpage.js/vendors/easings'
 
 export default {
   name: 'Main',
-  components: { SchoolLife, Skill, Intro },
+  components: { SchoolLife, Designer, Intro },
   data () {
     return {
       fullPageOptions: {

@@ -10,6 +10,7 @@
   "dependencies": {
     "amfe-flexible": "^2.2.1",
     "core-js": "^3.1.2",
+    "jsoneditor": "^9.1.1",
     "rimraf": "^3.0.2",
     "vue": "^2.6.10",
     "vue-fullpage.js": "^0.1.4",

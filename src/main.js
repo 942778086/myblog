@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import FullPage from 'vue-fullpage.js'
+import './common/component.css'
 import "./common/common"
 
 Vue.use(FullPage)
