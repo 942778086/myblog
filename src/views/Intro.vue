@@ -178,11 +178,13 @@ export default {
 }
 
 .card{
+    position: relative;
     display: inline-block;
     width: 2rem;
     height: 4rem;
     border: 2px solid #41b883;
     transition: all 1s;
+    z-index: 999;
 }
 
 .backgroundroom {
@@ -193,7 +195,6 @@ export default {
     width: 2rem;
     height: 4rem;
     overflow: hidden;
-    z-index: -1;
 }
 .ava{
     width: 0.85rem;
