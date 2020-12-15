@@ -1,13 +1,26 @@
 <template>
   <!-- 富文本 -->
   <div class="blog-mgr">
-      <div class="blog-mgr-header">
-          文章编辑页
+    <div class="blog-mgr-header">文章编辑页</div>
+    <div class="blog-mgr-body">
+      <div class="blog-mgr-editroom">
+        <editor v-model="content" :init="init" :disabled="disabled"></editor>
       </div>
-      <div class=""></div>
-      <div class="blog-mgr-body">
-          <editor v-model="content" :init="init" :disabled="disabled"></editor>
+      <div class="blog-arg-room">
+        <a-select
+          class="blog-tag-select"
+          mode="multiple"
+          placeholder="选择分类"
+          @change="handleChange"
+        >
+          <a-select-option v-for="(item, index) in tagList" :key="index">
+            {{ item }}
+          </a-select-option>
+        </a-select>
+        <br />
+        <a-button type="primary"> 发布文章 </a-button>
       </div>
+    </div>
   </div>
 </template>
 
@@ -46,33 +59,31 @@ import "tinymce/plugins/imagetools";
 import "tinymce/plugins/autosave";
 import "tinymce/plugins/autoresize";
 
-
-
 export default {
   components: {
-    Editor
+    Editor,
   },
   props: {
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     plugins: {
       type: [String, Array],
       default:
-        "preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template code codesample table charmap hr nonbreaking insertdatetime advlist lists wordcount imagetools textpattern autosave bdmap autoresize lineheight"
+        "preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template code codesample table charmap hr nonbreaking insertdatetime advlist lists wordcount imagetools textpattern autosave bdmap autoresize lineheight",
     },
     toolbar: {
       type: [String, Array],
       default:
         "code undo redo restoredraft | cut copy paste pastetext | forecolor backcolor bold italic underline strikethrough link codesample | alignleft aligncenter alignright alignjustify outdent indent lineheight formatpainter | \
     styleselect formatselect fontselect fontsizeselect | bullist numlist | blockquote subscript superscript removeformat | \
-    table image media charmap hr pagebreak insertdatetime | bdmap fullscreen preview"
-    }
+    table image media charmap hr pagebreak insertdatetime | bdmap fullscreen preview",
+    },
   },
   data() {
     return {
@@ -97,26 +108,71 @@ export default {
         images_upload_handler: (blobInfo, success, failure) => {
           const img = "data:image/jpeg;base64," + blobInfo.base64();
           success(img);
-        }
+        },
       },
-      content: this.value
+      tagList: [
+        "Html",
+        "CSS",
+        "Vue",
+        "小程序",
+        "electron",
+        "Java",
+        "Mysql",
+        "Spring",
+        "Nodejs",
+        "Javascript",
+        "Typescript",
+        "Amap",
+        "Git",
+        "React",
+      ],
+      content: this.value,
     };
   },
   mounted() {
     tinymce.init({});
   },
-  methods: {
-    
-  },
+  methods: {},
   watch: {
     value(newValue) {
       this.content = newValue;
     },
     content(newValue) {
       this.$emit("input", newValue);
-    }
-  }
+    },
+  },
 };
 </script>
-<style scoped lang="scss">
+<style scoped>
+.blog-mgr-header {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.blog-mgr-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.blog-mgr-editroom {
+  width: 70%;
+}
+
+.blog-arg-room {
+  width: 20%;
+  height: 300px;
+  border: 1px solid gray;
+  background-color: rgb(231, 231, 231);
+  border-radius: 15px;
+}
+
+.blog-tag-select {
+  width: 200px;
+}
+</style>
+
+<style>
+.tox-tinymce {
+  height: 4rem !important;
+}
 </style>

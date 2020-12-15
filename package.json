@@ -10,6 +10,7 @@
   "dependencies": {
     "@tinymce/tinymce-vue": "^1.1.2",
     "amfe-flexible": "^2.2.1",
+    "ant-design-vue": "^1.7.2",
     "core-js": "^3.1.2",
     "jsoneditor": "^9.1.1",
     "rimraf": "^3.0.2",
