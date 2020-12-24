@@ -63,9 +63,9 @@ export default {
 		return {
 			showSetting: false,
 			nodes: null,
-      showImg: false,
-      showMedia: false,
-      backgroundMap: new Map(),
+            showImg: false,
+            showMedia: false,
+            backgroundMap: new Map(),
 			favImages: [{
 				img: "https://i.loli.net/2020/07/20/th5qlCvnkO2HspE.jpg"
 			}, {
