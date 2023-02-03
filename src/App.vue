@@ -1,16 +1,21 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'mobile': isPhone }">
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isPhone: false
+    }
+  },
   created() {
-    let isPhone = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-    isPhone && this.$router.push({
-        path: '/phoneMain'
-      })
+    this.isPhone = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i) || (document.body.clientWidth < 900);
+    if (this.isPhone) {
+      document.querySelector('html').setAttribute('style', 'font-size: 80px')
+    }
   }
 }
 </script>

@@ -5,10 +5,12 @@
     <div class="left"></div>
     <div class="nameSpace">
       <div class="avaRoom">
-        <img class="ava" src="../assets/ava.jpg" alt="me wjx"></div>
+        <img class="main-ava" src="../assets/ava.jpg" alt="me wjx">
+      </div>
       <p class="label">
-        ME<br>
-        吴建星
+        欢迎<br>
+        现在，我向你介绍自己<br>
+        我，吴建星
       </p>
     </div>
     <div class="right"></div>
@@ -16,10 +18,10 @@
 </template>
 
 <script>
-import VideoPart from './VideoPart'
+import { deviceMixin } from '@/mixins/checkDevice.js'
 export default {
   name: 'FrontPage',
-  components: { VideoPart },
+  mixins: [deviceMixin],
   methods: {
     toMainPage () {
       this.$router.push({
@@ -52,7 +54,7 @@ export default {
 }
 
 .nameSpace{
-    width: 2.5rem;
+    width: 3.5rem;
     font-size: 0.2rem;
     font-weight: bold;
     color: white;
@@ -70,13 +72,26 @@ export default {
     opacity: 1;
   }
 }
-.ava{
+.main-ava{
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 3px solid white;
+  transform: translateY(-0.1rem);
 }
+
 .avaRoom{
   border-bottom: 1px solid white;
+}
+</style>
+
+<style>
+.mobile .main-ava{
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-bottom: 20px;
+}
+.mobile .label {
+  margin-top: 20px;
 }
 </style>

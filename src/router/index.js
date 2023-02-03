@@ -12,14 +12,6 @@ const routes = [
   {
     path: '/main',
     component: () => import('../views/Main')
-  },
-  {
-    path: "/phoneMain",
-    component: () => import('../mobileViews/Home')
-  },
-  {
-    path: "/mgr",
-    component: () => import('../views/Mgr/Index')
   }
 ]
 

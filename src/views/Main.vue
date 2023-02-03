@@ -5,10 +5,10 @@
         <Intro />
       </div>
       <div class="section">
-        <SchoolLife />
+        <Skill />
       </div>
       <div class="section">
-        <Designer />
+        <Photo />
       </div>
     </full-page>
   </div>
@@ -16,13 +16,13 @@
 
 <script>
 import Intro from './Intro'
-import Designer from './Designer/Index'
-import SchoolLife from './SchoolLife'
+import Photo from './Photo'
+import Skill from './Skill'
 import 'fullpage.js/vendors/easings'
 
 export default {
   name: 'Main',
-  components: { SchoolLife, Designer, Intro },
+  components: { Skill, Photo, Intro },
   data () {
     return {
       fullPageOptions: {
