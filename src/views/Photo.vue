@@ -34,7 +34,7 @@
           <div class="photo-btn" v-if="currentIndex > 0" @click="changePic(false)">上一个</div>
           <div class="photo-back" @click="back">返回</div>
         </div>
-        <div class="desc-label">{{ currentLabel }}</div>
+        <div class="desc-label" v-html="currentLabel.replace('\n', '<br/>')"></div>
         <div class="photo-time">{{ currentTime }}</div>
         <div class="photo-location">{{ currentLocation }}</div>
       </div>
@@ -148,13 +148,13 @@ export default {
           color: 'rgb(112 112 112)'
         },
         SImg1: {
-          desc: '初学计算机时，会在老师工作室呆到写字楼关门，会很傻的在笔记本上抄代码。我很感谢这段时间没有半途而废，使得我有机会，去到很远很漂亮的地方。',
+          desc: '初学计算机时，会在老师工作室呆到写字楼关门，很傻的在笔记本上抄代码。\n很感谢这段艰难的时间没有半途而废，也没有被放弃，使得我有机会去到远方。',
           location: '武汉',
           time: '2018.10.11 22:08',
           color: '#abada0bf'
         },
         SImg2: {
-          desc: '第一次，从前端聊天渲染逻辑，到websocket服务搭建，实现了聊天功能',
+          desc: '设计编写了前端聊天渲染逻辑，和websocket服务搭建，实现了聊天功能',
           location: '武汉',
           time: '2019.04.28 22:13',
           color: '#e4e6ff85'
@@ -170,7 +170,7 @@ export default {
           color: '#858585'
         },
         SImg5: {
-          desc: '这是我的父亲和我的弟弟，这是我想象中的父爱场景。',
+          desc: '这是我的父亲和我的弟弟，是我想象中的父爱场景。',
           location: '云南昭通',
           time: '2021.02.13 20:25',
           color: '#564a33'
@@ -182,19 +182,19 @@ export default {
           color: '#95856a'
         },
         SImg7: {
-          desc: '参与开发的北京市委组织部系统，逐渐铺开使用。或许这是我职业生涯的最高峰。',
+          desc: '所参与的为北京市委组织部开发的干部公务员管理系统，逐渐铺开使用。这是当前职业生涯中最有成就感的事情。',
           location: '北京通州',
           time: '2021.10.29 22:47',
           color: '#818181'
         },
         SImg8: {
-          desc: '它是比亚迪的秦系列，叫小迪，也是我的22岁人生成就。后来小迪陪我走了很多路，去了很多地方。',
+          desc: '它是比亚迪的秦PLUS，小名叫小迪。后来它陪我走了很多路，去了很多地方。',
           location: '武汉',
           time: '2022.01.03 16:07',
           color: '#5a5762'
         },
         SImg9: {
-          desc: '搬了一次家，房间难得的整齐干净，后面我就用“房间乱的人幸福指数会比较高”安慰自己了',
+          desc: '搬了一次家，房间难得的整齐干净，\n最近我爱就用“房间乱的人幸福指数会比较高”安慰自己',
           location: '武汉',
           time: '2022.07.03 00:17',
           color: '#8c7b5ddb'
@@ -206,7 +206,7 @@ export default {
           color: '#464a4f'
         },
         SImg11: {
-          desc: '小时候的夜晚，抬头的时候，仿佛有星辰在闪烁着前行。后来我也坐在了小时候仰望的星辰里，看到人间的烟火点亮云霄。',
+          desc: '小时候夜晚，抬头的时候，有星辰在闪烁着前行。\n后来我也坐在了小时候仰望的星辰里，转头就能看到人间的烟火点亮云霄。',
           location: '武汉-深圳',
           time: '2023.01.18 21:05',
           color: '#9a756d'
@@ -224,7 +224,7 @@ export default {
           color: '#2411156b'
         },
         SImg14: {
-          desc: '它是西沙，有国内最美丽的大海。',
+          desc: '它是西沙，这里有国内最美丽的大海。',
           location: '西沙',
           time: '2023.01.21 16:29',
           color: '#417783'
