@@ -300,7 +300,7 @@ export default {
 .gallary-room {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
+  margin-top: 0.2rem;
 }
 .gallary {
   border: 1px solid white;

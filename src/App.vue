@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{ 'mobile': isPhone }">
+  <div id="app" :class="{ 'mobile': isPhone, 'isIphone': isIos }">
     <router-view/>
   </div>
 </template>
@@ -8,13 +8,20 @@
 export default {
   data() {
     return {
-      isPhone: false
+      isPhone: false,
+      isIos: false
     }
   },
   created() {
     this.isPhone = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i) || (document.body.clientWidth < 900);
+    this.isIos = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
     if (this.isPhone) {
-      document.querySelector('html').setAttribute('style', 'font-size: 80px')
+      if (this.isIos) {
+        document.querySelector('html').setAttribute('style', 'font-size: 80px');
+        document.querySelector('html').classList.add('IOS');
+      } else {
+        document.querySelector('html').setAttribute('style', 'font-size: 80px');
+      }
     }
   }
 }
@@ -50,5 +57,11 @@ export default {
 
 *::-webkit-scrollbar-button:end {
     background-size: 12px 12px;
+}
+</style>
+
+<style>
+html.IOS {
+  font-size: 80px !important;
 }
 </style>

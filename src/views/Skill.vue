@@ -30,6 +30,8 @@
                 <div class="display-room">
                     <img src="../assets/skill/vue.png"/>
                     <img src="../assets/skill/react.png"/>
+                    <img src="../assets/skill/qiankun.png"/>
+                    <img src="../assets/skill/single-spa.svg"/>
                 </div>
             </div>
         </div>
@@ -55,6 +57,9 @@ export default {
     background-color: #4fc08d;
     overflow-x: auto;
 }
+.skill-label {
+    color: white;
+}
 .devide-line {
     display: flex;
     justify-content: center;
@@ -66,20 +71,6 @@ export default {
     background-color: white;
     transform: translateY(0.06rem);
     margin: 0 0.05rem;
-}
-.skill-room {
-    text-align: left;
-    display: flex;
-}
-.in-school-skill {
-    width: 1.5rem;
-}
-.in-succez-skill {
-    width: 1.5rem;
-    margin-left: 0.4rem;
-}
-.in-gy-skill {
-    margin: 0.4rem;
 }
 .article-room {
     position: absolute;
